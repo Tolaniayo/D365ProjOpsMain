@@ -115,78 +115,142 @@ You have been asked to:
 ### Steps:
 1. Navigate to **Settings → Organizational Units**.  
 2. Select **Fabrikam US** as the contracting unit.  
-3. Under **Default Cost Price List**, select *Fabrikam India Cost Rates FY25*.  
+3. Under **Default Cost Price List**, add *Fabrikam US Cost Rates FY25*.  
 4. Save changes.  
-5. Repeat for **Fabrikam Philippines** linking its own cost list.  
+5. Repeat for **Fabrikam India** linking its own cost list.  
 
 ### Validation
 - Each contracting unit has a default cost price list.  
 - Ensure no overlapping effective dates exist.
 
 ---
+# Exercise 5: Create a Project Contract
 
-## Exercise 5: Validate Pricing in a Project
-**Objective:** Confirm correct bill and cost rates apply to time entries.
+## Objective
+In this exercise, you’ll create a **Project Contract** in Dynamics 365 Project Operations that connects your project to billing, pricing, and funding sources.  
+You’ll configure the contract header, link the customer and project, and define contract lines with appropriate **contract types** and **price lists**.
 
-### Steps:
-1. Navigate to **Projects → Active Projects**.  
-2. Create a new project:
-   - **Name:** Global Implementation FY25  
+---
+
+## Learning Goals
+By completing this exercise, you will be able to:
+1. Create and configure a **Project Contract**.  
+2. Associate **Projects** and **Funding Sources** with the contract.  
+3. Assign **Price Lists** for billing and costing.  
+4. Understand how **contract lines** control invoicing and revenue recognition.
+
+---
+
+## Scenario
+Fabrikam has won a new project with **Contoso Ltd** to implement a global ERP rollout.  
+You have already prepared the **Sales and Cost price lists**.  
+Now, you need to create a **Project Contract** that will be used to bill Contoso for project work.
+
+---
+
+## Steps
+
+### Step 1: Navigate to Project Contracts
+1. In Dynamics 365, select the **Project Operations** app.  
+2. Navigate to **Project Contracts** from the left-hand navigation pane.  
+3. Click **+ New** to create a new contract.
+
+---
+
+### Step 2: Define the Contract Header
+1. Enter the following details:
+   - **Name:** Contoso ERP Implementation FY25  
    - **Customer:** Contoso Ltd  
    - **Contracting Unit:** Fabrikam US  
-3. Assign **Resources**:
-   - Developer (India)
-   - Consultant (Philippines)
-4. Navigate to **Estimates → Effort and Cost** tab.  
-5. Add 8 hours of time for each role.  
-6. Review the automatically applied:
-   - **Cost Rate** from the Cost Price List  
-   - **Bill Rate** from the Sales Price List  
+   - **Start Date:** 01/15/2025  
+   - **End Date:** 12/31/2025  
+   - **Currency:** USD  
+2. Click **Save**.
 
-### Validation
-| Role | Source Unit | Cost Rate | Bill Rate | Method |
-|------|--------------|------------|------------|---------|
-| Developer | India | ₹100/hr (converted) | $150/hr | Price per Unit |
-| Consultant | Philippines | $90/hr | $110/hr | Markup over cost |
+> 💡 *Tip:* Setting **Type = Work-based** on the previous steps ensures that the contract supports project-based billing and time entry.
 
 ---
 
-## Exercise 6: Apply a Markup Over Cost
-**Objective:** Demonstrate use of markup-based pricing.
+### Step 3: Add a Project to the Contract (Skip this as there is no existing project)
+1. In the **Related Projects** section, select **+ Add Existing Project**.  
+2. Choose the project named *Global Implementation FY25*.  
+3. Click **Add**.  
 
-### Steps:
-1. In **Fabrikam US Bill Rates FY25**, open the **Developer (India)** role line.  
-2. Change **Pricing Method** to *Markup over cost (%)*.  
-3. Set **Percent = 10%**.  
-4. Save and refresh.  
-5. Return to your project and create a new time entry for Developer (India).  
-
-### Validation
-- Bill rate should automatically reflect cost × 1.10 (10% markup).  
-- Example: ₹100 cost → $110 bill rate (after conversion).
+> ⚙️ The system now links this project to the contract for billing and actual cost tracking.
 
 ---
 
-## Exercise 7: Reporting & Review
-**Objective:** Review pricing data and ensure accuracy.
+### Step 4: Add Contract Lines 
+1. In the **Contract Lines** tab, click **+ New Contract Line**.  
+2. Enter:
+   - **Line Name:** ERP Implementation – Time & Materials  
+   - **Type:** Work-based  
+   - **Billing Method:** Time and Materials  
+   - **Sales Price List:** Fabrikam US Bill Rates FY25  
+3. Save the contract line.
 
-### Steps:
-1. Open your project → **Actuals** tab.  
-2. Filter by **Resource** to confirm each role’s rates.  
-3. Check **Project Invoice Estimate** to validate total billed amount.  
-4. Export report to Excel if required.
+> 🔁 Each contract line defines how a specific part of the project is billed — by time, fixed fee, or milestone.
 
-### Expected Result
-- Labor rates apply correctly by Role + Resourcing Unit.  
-- Cost and Bill rates reflect correct price lists and methods.
+---
+
+### Step 5: Assign a Cost Price List (Skip this, this is determined by the contracting unit)
+1. Still within the **Contract Line**, scroll to the **Cost Price List** field.  
+2. Select *Fabrikam India Cost Rates FY25*.  
+3. Save changes.
+
+> ✅ This ensures that labor costs from the resourcing unit are properly applied to this contract.
+
+---
+
+### Step 6: Split funding Sources (if there are multiple customers)
+1. Select the **Funding Sources** tab.  
+2. Click **+ Add Funding Source**.  
+3. Enter:
+   - **Funding Source:** Contoso Ltd  
+   - **Percentage:** 100%  
+4. Save.
+
+> 🧾 If multiple customers or departments are funding a project, you can split the funding here (e.g., 70/30).
+
+---
+
+### Step 7: Activate the Contract
+1. Once all details are correct, click **Confirm** on the command bar.  
+2. Confirm the activation.  
+3. The status changes to **Active**, meaning:
+   - It’s now available for **invoicing**.  
+   - Linked projects can post actuals against this contract.  
+   - Billing transactions can be generated.
+
+---
+
+## Validation
+- Confirm the **Project Contract** is visible under **Project Contracts → Active Contracts**.  
+- The linked **Project**, **Contract Lines**, and **Funding Sources** should all be displayed.  
+- Create a **sample time entry** for the project to verify that rates are pulled from the assigned **price lists**.
+
+---
+
+## Expected Result
+| Validation Item | Expected Outcome |
+|------------------|------------------|
+| Contract Type | Work-based |
+| Billing Method | Time & Materials |
+| Sales Price List | Fabrikam US Bill Rates FY25 |
+| Cost Price List | Fabrikam India Cost Rates FY25 |
+| Status | Active |
+| Linked Project | Global Implementation FY25 |
+
+✅ The contract now enables automatic pricing, billing, and revenue recognition for the project.
 
 ---
 
 ## Lab Summary
-In this lab, you:
-- Created **Sales** and **Cost** price lists for Fabrikam divisions.  
-- Enabled **Cost Plus Pricing**.  
-- Configured **Transfer Pricing** across organizational units.  
-- Validated **automatic rate determination** during time entry.  
+In this exercise, you:
+- Created a **Project Contract**.  
+- Linked a **Project** and **Funding Source**.  
+- Defined **Sales and Cost Price Lists**.  
+- Activated the contract for **billing and reporting**.
 
-✅ You have successfully configured **Labor Pricing and Costing** in D365 Project Operations.
+🎯 You now have a fully functioning **contract-to-billing setup** in Dynamics 365 Project Operations.
+
