@@ -83,11 +83,11 @@ You have been asked to:
 **Objective:** Configure internal cost rates per division.
 
 ### Steps:
-1. Navigate to **Project Operations → Price Lists**.  
+1. Navigate to **Sales → Customers → Price Lists**.  
 2. Select **New** and create a Cost Price List:
    - **Name:** Fabrikam India Cost Rates FY25  
    - **Context:** Cost  
-   - **Currency:** INR  
+   - **Currency:** Rupee  
    - **Start Date:** 01/01/2025  
    - **End Date:** 12/31/2025  
 3. Save the record.  
