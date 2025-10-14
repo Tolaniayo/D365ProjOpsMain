@@ -65,7 +65,7 @@ You have been asked to:
 
 ---
 
-## Exercise 2: Enable Cost Plus Pricing
+## Exercise 2: Enable Cost Plus Pricing (Skip this Lab, Feature is in Preview)
 **Objective:** Enable advanced pricing methods (Markup over cost, At cost)
 
 ### Steps:
