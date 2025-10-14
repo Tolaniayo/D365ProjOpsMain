@@ -55,7 +55,7 @@ You have been asked to:
 |------|------------------|----------------|--------|-----------|------|
 | Developer | Fabrikam India | Price per Unit | 100 | USD | Hour |
 | Developer | Fabrikam US | Price per Unit | 150 | USD | Hour |
-| Consultant | Fabrikam Philippines | Price per Unit | 90 | USD | Hour |
+| Consultant | Fabrikam Switzerland | Price per Unit | 90 | USD | Hour |
 
 5. Save and close the price list.
 
