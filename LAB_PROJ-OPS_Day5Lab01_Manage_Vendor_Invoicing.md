@@ -8,12 +8,6 @@ You’ll use an existing subcontract and project to simulate how subcontractor c
 
 ---
 
-## Prerequisites
-Before you begin:
-- You have completed Day 4 lab (“Manage Subcontracts”).
-- You are signed in as a **Project Manager** or **System Administrator**.
-- A subcontract and vendor exist (e.g., *Contoso Consulting Services*).
-- A project is active and has associated roles and tasks.
 
 ---
 
@@ -23,20 +17,22 @@ Before you begin:
 You’ve already created a subcontract for *Contoso Consulting Services*. You now need to associate their contract workers to specific project roles to allow time entry and costing.
 
 ### Tasks
-1. Navigate to **Project Operations > Subcontracts**.
-2. Open **Contoso Implementation Support** subcontract.
-3. On the **Subcontract Lines** tab, select the **Time** line for “Consultant.”
-4. Go to **Subcontract Line Resources** > **+ New Resource**.
-5. Select:
-   - **Bookable Resource:** Alex Wilber
+1. Navigate to Purchasing > Vendor.
+2. Create a new vendor
+3. Navigate to **Purchasing > Subcontracts**.
+4. Create a new **Contoso Implementation Support** subcontract and complete the compulsory fields.
+5. On the **Subcontract Lines** tab, select the **Time** line for “Consultant" and complete necessary fields as needed.
+6. Go to **Subcontract Line Resources** > **+ New Resource**.
+7. Select:
+   - **Bookable Resource:** Select an existing resource
    - **Type of Worker:** Contract Worker
    - **Vendor:** Contoso Consulting Services
    - **Start/End Dates:** Cover project duration.
    - **Effort:** 160 hours
-6. Save and close.
+8. Save and close.
 
 **Expected Result:**  
-Alex Wilber is linked as a subcontracted consultant and available for staffing and time entry.
+The resource is linked as a subcontracted consultant and available for staffing and time entry.
 
 ---
 
@@ -67,7 +63,7 @@ You need to ensure that subcontracted resources are costed correctly using the p
 2. Select **Update Prices**.
 3. Review cost estimation for:
    - Role = Consultant
-   - Resource = Alex Wilber
+   - Resource = Select the previous resource (contractor)
 4. Confirm that cost rates reflect vendor purchase prices, not internal employee rates.
 
 **Expected Result:**  
@@ -78,7 +74,7 @@ Project cost estimates are recalculated using subcontract purchase pricing rules
 ## Exercise 4 – Configure Schedule Board for Contract Workers
 
 ### Tasks
-1. Navigate to **Schedule Board > Settings.**
+1. Navigate to **Projects > Schedule Board > Settings.**
 2. On the **General Tab**, set:
    - **Filter Layout:** Default Filter Layout for Project Operations Core
    - **Retrieve Resources Query:** Default Retrieve Resources Query for Project Operations Core
@@ -112,7 +108,7 @@ The subcontracted resource is booked on the project and can record time entries.
 ## Exercise 6 – Record Subcontractor Time
 
 ### Tasks
-1. Sign in as **Alex Wilber (Contract Worker).**
+1. Sign in as **Resource (Contract Worker).**
 2. Navigate to **Time Entries > + New.**
 3. Enter:
    - **Project:** Implementation Project
